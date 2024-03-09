@@ -72,26 +72,39 @@ function addItem() {
 }
 
 function removeItem() {
-    switch (chooseCategory()) {
+    let category = chooseCategory();
+    switch (category) {
         case "frutas":
-            let selectedItem = prompt("Qual fruta deseja remover?:\n  " + frutas.join(";\n    "));
-            frutas = frutas.filter(item => item !== selectedItem);
+            let selectedItem = prompt("Qual fruta deseja remover?:\n    " + frutas.join(";\n    "));
+            if (removeItemConfirmation(selectedItem, category)) {
+                frutas = frutas.filter(item => item !== selectedItem);
+            }
             break; 
         case "laticinios":
-            selectedItem = prompt("Qual laticínio deseja remover?:\n  " + laticinios.join(";\n    "));
-            laticinios = laticinios.filter(item => item !== selectedItem);
+            selectedItem = prompt("Qual laticínio deseja remover?:\n    " + laticinios.join(";\n    "));
+            if (removeItemConfirmation(selectedItem, category)) {
+                laticinios = laticinios.filter(item => item !== selectedItem);
+            }
             break;
         case "congelados":
-            selectedItem = prompt("Qual congelado deseja remover?:\n  " + congelados.join(";\n    "));
-            congelados = congelados.filter(item => item !== selectedItem);
+            selectedItem = prompt("Qual congelado deseja remover?:\n    " + congelados.join(";\n    "));
+            if (removeItemConfirmation(selectedItem, category)) {
+                congelados = congelados.filter(item => item !== selectedItem);
+            }
             break;
         case "doces":
-            selectedItem = prompt("Qual doce deseja remover?:\n  " + doces.join(";\n    "));
-            doces = doces.filter(item => item !== selectedItem);
+            selectedItem = prompt("Qual doce deseja remover?:\n    " + doces.join(";\n    "));
+            if (removeItemConfirmation(selectedItem, category)) {
+                doces = doces.filter(item => item !== selectedItem);
+            }
             break;
         default:
             break;
     }    
+}
+
+function removeItemConfirmation(item, category) {
+    return confirm("Deseja realmente remover " + item + " da categoria " + category + "?");
 }
 
 function printShoppingList() {
