@@ -8,7 +8,7 @@ function run() {
     if (confirm("Deseja criar uma lista de compras?")) {
         let isListDone = false;
         while (!isListDone) {
-            let userAnswer = prompt("A lista está completa?\n1 - Desejo adicionar mais itens\n2 - Desejo remover itens\n3 - Sim!");
+            let userAnswer = prompt("A lista está completa?\n1 - Desejo adicionar mais itens\n2 - Desejo remover itens\n3 - Sim!\n4 - Sair");
             switch (userAnswer) {
                 case "1":
                     addItem();
@@ -18,6 +18,11 @@ function run() {
                     break;
                 case "3":
                     isListDone = true;
+                    break;
+                case "4":
+                    if (confirm("Deseja realmente sair?")) {
+                        isListDone = true;
+                    }
                     break;
                 default:
                     alert("Opção inválida");
